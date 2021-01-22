@@ -7,7 +7,7 @@ const cheerio = require("cheerio");
 const ytdl = require("ytdl-core");
 const child_process = require("child_process");
 
-const token = "ODAyMjE0NDg0ODgxNzAyOTU0.YAr-dQ.Xtsx7lVMZfSM27Xd8zBGyXMrj6Q"
+const token = ""
 
 const PREFIX = "$";
 
