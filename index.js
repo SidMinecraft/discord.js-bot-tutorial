@@ -7,7 +7,7 @@ const cheerio = require("cheerio");
 const ytdl = require("ytdl-core");
 const child_process = require("child_process");
 
-const token = ""
+const token = "ODAyMjE0NDg0ODgxNzAyOTU0.YAr-dQ.WgRQwXBaF4dLv7RiGL9iNMMFEG0"
 
 const PREFIX = "$";
 
@@ -55,7 +55,30 @@ bot.on("message", async message => {
             .setColor("#00FF00")
         )
     }
+    if(com == PREFIX+"name") {
+        if(!args[1]) 
+            return message.reply(`Your name is ${args[0]}`);
+        if(args[1]) 
+            return message.reply(`Your name is ${args[0]} ${args[1]}`);
+    }
+    if(com = PREFIX+"say") {
+        if(!message.member.hasPermission(["MANAGE_MESSAGES"]))
+            return message.reply("You do not have permission to use this command!");
 
+        let argsresult;
+        let mchannel = message.guild.channels.cache.find(
+            ch => (ch.name = args[1])
+        );
+        
+        message.delete();
+        if(mchannel) {
+            argsresult = args.slice(1).join(" ");
+            message.channel.send(argsresult);
+        } else {
+            argsresult = args.join(" ")
+            message.channel.send(argsresult);
+        }
+    }
 });
 
 
